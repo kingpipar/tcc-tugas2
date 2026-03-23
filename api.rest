@@ -11,12 +11,12 @@ Content-Type: application/json
 }
 
 ### Mengedit Catatan (Ganti angka 1 dengan ID catatan yang ada)
-PUT http://localhost:3000/api/notes/1
+PUT http://localhost:3000/api/notes/3
 Content-Type: application/json
 
 {
     "judul": "Test dari api buat ss",
-    "isi": "Ini membuat catatan yang dikirim dari api.rest."
+    "isi": "Ini membuat catatan yang dikirim dari api.rest revisi."
 }
 
 ### Menghapus Catatan (Ganti angka 1 dengan ID catatan)
