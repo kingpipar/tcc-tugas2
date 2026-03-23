@@ -6,7 +6,7 @@ POST http://localhost:3000/api/notes
 Content-Type: application/json
 
 {
-    "judul": "Test dari api",
+    "judul": "Test dari api buat ss",
     "isi": "Ini membuat catatan yang dikirim dari api.rest."
 }
 
@@ -15,8 +15,8 @@ PUT http://localhost:3000/api/notes/1
 Content-Type: application/json
 
 {
-    "judul": "Belajar Express MVC (Revisi)",
-    "isi": "Sudah berhasil koneksi ke database dan sinkronisasi schema."
+    "judul": "Test dari api buat ss",
+    "isi": "Ini membuat catatan yang dikirim dari api.rest."
 }
 
 ### Menghapus Catatan (Ganti angka 1 dengan ID catatan)
