@@ -137,7 +137,7 @@
         .note-body {
             flex-grow: 1;
             margin-bottom: 1rem;
-            white-space: pre-wrap; /* Agar enter/newline di textarea terbaca */
+            white-space: pre-wrap;
         }
 
         .note-date {
@@ -177,9 +177,9 @@
     </div>
 
 <script>
-        const API_URL = 'http://localhost:3000/api/notes';
+        const API_URL = 'http://34.44.136.164:3000/api/notes';
         
-        // Kita buat variabel global untuk menyimpan data catatan sementara
+        // variabel global untuk menyimpan data catatan yang diambil dari database
         let allNotes = [];
 
         document.addEventListener('DOMContentLoaded', fetchNotes);
@@ -189,7 +189,7 @@
                 const response = await fetch(API_URL);
                 if (!response.ok) throw new Error('Gagal terhubung ke API');
                 
-                // Simpan data dari database ke variabel global
+                // menyimpan data catatan dari database ke variabel global
                 allNotes = await response.json(); 
                 
                 const container = document.getElementById('notesContainer');
@@ -201,7 +201,7 @@
                 }
 
                 allNotes.forEach(note => {
-                    // Validasi tanggal agar tidak error jika dari database kosong/null
+                    // format tanggal dibuatnya catatan
                     let formattedDate = 'Tanggal tidak diketahui';
                     if (note.tanggal_dibuat) {
                         const dateObj = new Date(note.tanggal_dibuat);
@@ -213,7 +213,7 @@
                         }
                     }
 
-                    // Tampilkan HTML, di tombol Edit kita HANYA memanggil ID-nya saja (sangat aman)
+                    // tampilan isi catatan
                     container.innerHTML += `
                         <div class="note-card">
                             <div class="note-title">${note.judul || ''}</div>
@@ -251,7 +251,7 @@
                     body: JSON.stringify({ judul, isi })
                 });
 
-                // Kosongkan form setelah simpan
+                // otomatis mereset form jadi kosong setelah menyimpan catatan
                 document.getElementById('noteId').value = '';
                 document.getElementById('judul').value = '';
                 document.getElementById('isi').value = '';
@@ -265,11 +265,11 @@
         }
 
         function editNote(id) {
-            // Cari data catatan dari variabel allNotes berdasarkan ID
+            // mencari data catatan berdasar id
             const note = allNotes.find(n => n.id === id);
             
             if (note) {
-                // Masukkan data ke dalam form
+                // memasukan data catatan ke form
                 document.getElementById('noteId').value = note.id;
                 document.getElementById('judul').value = note.judul;
                 document.getElementById('isi').value = note.isi;
