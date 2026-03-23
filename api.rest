@@ -1,0 +1,23 @@
+### Melihat Semua Catatan
+GET http://localhost:3000/api/notes
+
+### Menambah Catatan Baru
+POST http://localhost:3000/api/notes
+Content-Type: application/json
+
+{
+    "judul": "Test dari api",
+    "isi": "Ini membuat catatan yang dikirim dari api.rest."
+}
+
+### Mengedit Catatan (Ganti angka 1 dengan ID catatan yang ada)
+PUT http://localhost:3000/api/notes/1
+Content-Type: application/json
+
+{
+    "judul": "Belajar Express MVC (Revisi)",
+    "isi": "Sudah berhasil koneksi ke database dan sinkronisasi schema."
+}
+
+### Menghapus Catatan (Ganti angka 1 dengan ID catatan)
+DELETE http://localhost:3000/api/notes/3
